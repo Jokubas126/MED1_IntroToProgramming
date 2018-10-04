@@ -1,6 +1,7 @@
 int r=60;
 float ballX;
 float ballY;
+int piccolor;
 
 void setup() {
   size(600,400);
