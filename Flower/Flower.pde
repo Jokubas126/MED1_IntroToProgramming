@@ -1,22 +1,20 @@
 int r=60;
-float ballX;
-float ballY;
-int piccolor;
+float ballX = width / 2;
+float ballY = height / 2;
+myFlower Flower1;
 
 void setup() {
-  size(600,400);
-  background(#43AF76);
+  size(1500,800);
+  background(#4BCB2F);
+  int _r=60;
+  float _ballX = width / 2;
+  float _ballY = height / 2;
+  int _petalsnumber = 5;
+  int _picturecolor = #E3E802;
+  Flower1 = new myFlower(_r,_petalsnumber,_ballX,_ballY,_picturecolor);
 }
 
 void draw(){
-
-  fill(#FFA005);
-  for (float i=0;i<PI*2;i+=2*PI/5) {
-  ballX=width/2 + r*cos(i);
-  ballY=height/2 + r*sin(i);
-  ellipse(ballX,ballY,r,r); 
-  }
-  fill(200,0,0);
-  ellipse(width/2,height/2,r*1.2,r*1.2);
+  Flower1.flower();
 }  
  
