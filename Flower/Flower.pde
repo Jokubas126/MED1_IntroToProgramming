@@ -1,4 +1,6 @@
 int r=60;
+float speedX = 1;
+float speedY = 1;
 float ballX = width / 2;
 float ballY = height / 2;
 myFlower Flower1;
@@ -11,10 +13,13 @@ void setup() {
   float _ballY = height / 2;
   int _petalsnumber = 5;
   int _picturecolor = #E3E802;
-  Flower1 = new myFlower(_r,_petalsnumber,_ballX,_ballY,_picturecolor);
+  float _speedX = 1;
+  float _speedY = 1;
+  Flower1 = new myFlower(_r,_petalsnumber,_ballX,_ballY,_picturecolor, _speedX, _speedY);
 }
 
 void draw(){
   Flower1.flower();
+  bounce(ballX, ballY, speedX, speedY);
 }  
  
