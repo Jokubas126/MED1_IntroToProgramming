@@ -20,6 +20,6 @@ void setup() {
 
 void draw(){
   Flower1.flower();
-  bounce(ballX, ballY, speedX, speedY);
+  Flower1.bounce();
 }  
  

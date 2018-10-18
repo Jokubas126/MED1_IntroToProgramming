@@ -22,12 +22,7 @@ void flower(){
   background(#4BCB2F);
   fill(#E3E802);
   for (float i=0;i<PI*2;i+=2*PI/petalsnumber) {
-  if(ballX < 0 || ballX > width){
-   speedX = speedX * -1;
- }
- if(ballY < 0 || ballY > height){
-   speedY = speedY * -1;
- }
+  
   ballX = x + r*cos(i) + speedX;
   ballY = y + r*sin(i) + speedY;
   x = x + speedX;
@@ -36,5 +31,14 @@ void flower(){
   }
   fill(#FF0000);
   ellipse(x,y,r*1.2,r*1.2);
+}
+
+void bounce(){
+ if(ballX < 0 || ballX > width){
+   speedX = speedX * -1;
+ }
+ if(ballY < 0 || ballY > height){
+   speedY = speedY * -1;
+ } 
 }
 }
