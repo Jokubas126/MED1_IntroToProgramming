@@ -1,0 +1,147 @@
+int ballsize = 40;
+int racketwidth = 15, racketheight = 100;
+int width = 1000, height = 800;
+int score1 = 0, score2 = 0;
+
+float convert = -1;
+float yballspeed = 2, xballspeed = 2;
+float accelerate = 0.2;
+float speed = 5;
+float xball, yball;
+float xracket1 = 0, xracket2 = width - 15;
+float startx = width / 2, starty = height / 2;
+float yracket1 = height / 2, yracket2 = height / 2;
+
+boolean hit1 = false;
+boolean hit2 = false;
+
+void setup(){
+  size(1000,800);
+  background(#A0A2C6); //background color - bright brown
+  strokeWeight(1);
+  fill(#000EFC);
+  xball = startx;
+  yball = starty;
+}
+
+void draw(){
+  background(#A0A2C6);
+  fill(#165234);
+  score();
+  rackets(); //rectangles on the left and then right side
+  ball();
+  changeDirection();
+  changeHit();
+}
+
+void keyPressed(){
+ if (keyCode == UP && yracket2 > 0){
+  background(#A0A2C6);
+  yracket2 = yracket2 - speed; //right racket moving up
+  rackets();
+  ball();
+  score();
+  changeHit();
+ }
+ if (keyCode == DOWN && yracket2 < height - racketheight){
+  background(#A0A2C6);
+  yracket2 = yracket2 + speed; //right racket moving down
+  rackets();
+  ball();
+  score();
+  changeHit();
+ }
+ if (key == 'w' || key == 'W' && yracket1 > 0){
+  background(#A0A2C6);
+  yracket1 = yracket1 - speed; //left racket moving up
+  rackets();
+  ball();
+  score();
+  changeHit();
+ }
+ if (key == 's' || key == 'S' && yracket1 < height - racketheight){
+  background(#A0A2C6);
+  yracket1 = yracket1 + speed; //left racket moving to down
+  rackets();
+  ball();
+  score();
+  changeHit();
+ }
+}
+
+void rackets(){ //function for making rackets
+  rect (xracket1, yracket1, racketwidth, racketheight); //rectangles on the left and then right side
+  rect (xracket2, yracket2, racketwidth, racketheight);
+}
+
+void ball(){ //function for making a ball
+  ellipse(xball, yball, ballsize, ballsize); // ball which always moves
+  xball = xball + xballspeed; //makes ball moving
+  yball = yball + yballspeed;
+}
+
+void changeDirection(){
+  if (yball >= yracket2 && yball <= yracket2 + racketheight){
+    if (xball > width - (ballsize / 2) - racketwidth){
+     xballspeed = xballspeed * convert;//change direction on x axe
+     hit2 = !hit2;
+     score();
+    }
+  }
+  else if ((yball >= yracket1 && yball <= yracket1 + racketheight)){
+    if (xball < ballsize / 2 + racketwidth){
+      xballspeed = xballspeed * convert;//change direction on x axe
+      hit1 = !hit1;
+      score();
+    }
+  }
+  if (yball > height || yball < 0){
+   yballspeed = yballspeed * convert; // change direction on y axe
+  }
+  if (xball >= width || xball <= 0){ 
+    gameOver();
+    }
+}
+
+void score(){ //function for writing a score
+ textSize(30);
+ text(score1, width/2 - 50, 30);
+ text(score2, width/2 + 50, 30);
+ if (hit1){
+    score1++;
+  }
+  if (hit2){
+    score2++;
+  }
+}
+
+void changeHit(){
+  if (hit1 == true){
+    hit1 = !hit1;
+    //acceleration();
+  }
+  if (hit2 == true){
+    hit2 = !hit2;
+    //acceleration();
+  }
+}
+void acceleration(){
+  if (xballspeed > 0){
+  xballspeed = xballspeed + accelerate;
+  }
+  else xballspeed = xballspeed - accelerate;
+}
+
+void gameOver(){
+  background(#A0A2C6); //background color - bright brown
+  textSize(30);
+  text("GAME OVER", width/2 - 50, height/2);
+  textSize(50);
+  if (xball <= 0){
+   text("PLAYER 2 WINS!", width/2 - 100, height / 2 + 100); 
+  }
+  if (xball >= width){
+   text("PLAYER 1 WINS!", width/2 - 150, height / 2 + 100); 
+  }
+  noLoop();
+}
