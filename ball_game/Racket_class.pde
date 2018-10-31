@@ -15,27 +15,43 @@ class Racket{
     speed = temp_speed;
   }
   
-  void display(){ //function for making rackets
+  void display(float yracket, int i){ //function for making rackets
   rect (xracket, yracket, racketwidth, racketheight); //rectangles on the left and then right side
   }
   
-  void move(){
- if (keyCode == UP && yracket > 0){
+  void moveup(float y, int i){
   background(#A0A2C6);
-  yracket = yracket - speed; //racket moving up
-  racket2.display();
+  y = y - speed; //racket moving up
+  if (i == 0){
+    rackets[i].display(y, i);
+  }
+  i = 1;
+  rackets[i].display(yracket, i);
   ball.display();
-  score();
-  changeHit();
+  //score();
+  //changeHit();
  }
- if (keyCode == DOWN && yracket < height - racketheight){
+  }
+  
+  void movedown(float y, int i){
   background(#A0A2C6);
-  yracket = yracket + speed; //right racket moving down
-  racket2.display();
+  y = y + speed; //racket moving down
+  if (i == 0){
+    rackets[i].display(y, i);
+    i = 1;
+    rackets[i].display(y, i);
+  }
+  if (i == 1){
+  rackets[i].display(yracket[i], i);
+  i = 0;
+  rackets[i].display(yracket[i], i);
+  }
   ball.display();
-  score();
-  changeHit();
+  //score();
+  //changeHit();
  }
+ 
+ /*
  if (key == 'w' || key == 'W' && yracket > 0){
   background(#A0A2C6);
   yracket = yracket - speed; //left racket moving up
@@ -52,5 +68,5 @@ class Racket{
   score();
   changeHit();
  }
-}
-}
+*/
+//}

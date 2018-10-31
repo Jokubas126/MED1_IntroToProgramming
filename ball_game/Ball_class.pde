@@ -9,10 +9,8 @@ class Ball{
   float accelerate;
   float convert;
   float t;
-  float yracket1;
-  float yracket2;
   
-  Ball(int temp_ballsize, float temp_xball, float temp_yball, float temp_yballspeed, float temp_xballspeed, float temp_accelerate, float temp_convert, float temp_t, float temp_yracket1, float temp_yracket2){
+  Ball(int temp_ballsize, float temp_xball, float temp_yball, float temp_yballspeed, float temp_xballspeed, float temp_accelerate, float temp_convert, float temp_t){
     ballsize = temp_ballsize;
     xball = temp_xball;
     yball = temp_yball;
@@ -21,8 +19,6 @@ class Ball{
     accelerate = temp_accelerate;
     convert = temp_convert;
     t = temp_t;
-    yracket1 = temp_yracket1;
-    yracket2 = temp_yracket2;
   }
   
   void display(){ //function for making a ball
@@ -31,11 +27,11 @@ class Ball{
   yball = yball + yballspeed;
 }
 
-
+/*
 
 void trajectory(){
  if (xball < width / 2){
-   for (float traj1 = height - racket1.yracket + racket1.racketheight / 2; traj1 <= height - racket1.yracket + racket1.racketheight; traj1 += 2){
+   for (float traj1 = height - rackets[0].yracket + racket1.racketheight / 2; traj1 <= height - racket1.yracket + racket1.racketheight; traj1 += 2){
      t = t + 0.5;
      if (traj1 == yball || traj1 == yball + 1 ){
        yballspeed = yballspeed + t;
@@ -65,24 +61,24 @@ void trajectory(){
  t = 0; //makes t into 0 after using it
 }
 
-
+*/
 
 void changeDirection(){
   if (xball > width / 2){
-    if (yball >= racket2.yracket && yball <= racket2.yracket + racket2.racketheight){
-      if (xball > width - (ballsize / 2) - racket2.racketwidth){
-       xballspeed = xballspeed * convert;//change direction on x axe
+    if (yball >= rackets[1].yracket && yball <= rackets[1].yracket + rackets[1].racketheight){
+      if (xball > width - (ballsize / 2) - rackets[1].racketwidth){
+       xballspeed = xballspeed * convert; //change direction on x axe
        hit2 = !hit2;
-       score();
+       //score();
       }
     }
   }
   if (xball < width / 2){
-    if ((yball >= racket1.yracket && yball <= racket1.yracket + racket1.racketheight)){
-      if (xball < ballsize / 2 + racket1.racketwidth){
+    if ((yball >= rackets[0].yracket && yball <= rackets[0].yracket + rackets[0].racketheight)){
+      if (xball < ballsize / 2 + rackets[0].racketwidth){
         xballspeed = xballspeed * convert;//change direction on x axe
         hit1 = !hit1;
-        score();
+        //score();
       }
     }
   }
@@ -94,7 +90,7 @@ void changeDirection(){
     }
 }
 
-
+/*
 
 void acceleration(){
   if (xballspeed > 0){
@@ -102,4 +98,5 @@ void acceleration(){
   }
   else xballspeed = xballspeed - accelerate;
 }
+*/
 }

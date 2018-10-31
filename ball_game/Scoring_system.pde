@@ -1,4 +1,4 @@
-void score(){ //function for writing a score
+/*void score(){ //function for writing a score
  textSize(30);
  text(score1, width/2 - 50, 30);
  text(score2, width/2 + 50, 30);
@@ -20,3 +20,4 @@ void changeHit(){
     ball.acceleration();
   }
 }
+*/
