@@ -22,8 +22,8 @@ boolean hit2 = false;
 
 Ball ball;
 
-Racket[] rackets = {new Racket(xracket[0],  yracket[0], racketwidth, racketheight, speed), 
-  new Racket (xracket[1], yracket[1], racketwidth, racketheight, speed)};
+Racket[] rackets = {new Racket(xracket1,  yracket1, racketwidth, racketheight, speed), 
+  new Racket (xracket2, yracket2, racketwidth, racketheight, speed)};
   
 
 
@@ -40,7 +40,7 @@ void draw(){
   fill(#165234);
   //score();
   for(int i=0;i<2;i++){
-  rackets[i].display(yracket[i], i);//rectangles on the left and then right side
+  rackets[i].display(yracket[i]);//rectangles on the left and then right side
   }
   
   ball.display();
