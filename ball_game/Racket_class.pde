@@ -31,8 +31,7 @@ class Racket{
   //score();
   //changeHit();
  }
-  }
-  
+
   void movedown(float y, int i){
   background(#A0A2C6);
   y = y + speed; //racket moving down
@@ -42,9 +41,9 @@ class Racket{
     rackets[i].display(y, i);
   }
   if (i == 1){
-  rackets[i].display(yracket[i], i);
+  rackets[i].display(y, i);
   i = 0;
-  rackets[i].display(yracket[i], i);
+  rackets[i].display(y, i);
   }
   ball.display();
   //score();
@@ -69,4 +68,4 @@ class Racket{
   changeHit();
  }
 */
-//}
+}

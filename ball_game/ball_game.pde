@@ -12,6 +12,7 @@ float xracket1 = 0, xracket2 = width - 15;
 float xball = width / 2, yball = height / 2;
 float yracket1 = height / 2, yracket2 = height / 2;
 float t = 0;
+float y;
 
 float[] xracket = {0, width - 15};
 float[] yracket = {height/2, height/2};
