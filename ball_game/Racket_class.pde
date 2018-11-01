@@ -2,25 +2,26 @@ class Racket{
   
   int racketwidth;
   int racketheight;
+  int i;
   
   //float xracket;
   //float yracket;
   float speed;
   
-  float[] xracket;
-  float[] yracket;
+  float xracket;
+  float [] yracket;
   
-  Racket(float temp_xracket, float temp_yracket, int temp_racketwidth, int temp_racketheight, float temp_speed){
-    
-    xracket[i] = temp_xracket;
-    yracket[i] = temp_yracket;
+  Racket(float temp_xracket, float temp_yracket[], int temp_racketwidth, int temp_racketheight, float temp_speed, int temp_i){
+    i = temp_i;
+    xracket = temp_xracket;
+    yracket[i] = temp_yracket[i];
     racketwidth = temp_racketwidth;
     racketheight = temp_racketheight;
     speed = temp_speed;
   }
   
-  void display(float yracket){ //function for making rackets
-  rect (xracket, yracket, racketwidth, racketheight); //rectangles on the left and then right side
+  void display(float [] yracket, int i){ //function for making rackets
+  rect (xracket, yracket[i], racketwidth, racketheight); //rectangles on the left and then right side
   }
   
   void moveup(float y, int i){
@@ -38,24 +39,23 @@ class Racket{
   //changeHit();
  }
 
-  void movedown(float y, int i){
+  void movedown(float[] yracket, int i){
   background(#A0A2C6);
-  y = y + speed; //racket moving down
+  yracket[i] = yracket[i] + speed; //racket moving down
   
-  rackets[i].display(y);
+  //rackets[i].display(yracket[i],i);
   
-  /*if (i == 0){
-    rackets[i].display(y, i);
-    //i = 1;
-    //rackets[i].display(y, i);
+  if (i == 0){
+    rackets[i].display(yracket[i], i);
+    i = 1;
+    rackets[i].display(yracket[i], i);
   }
   if (i == 1){
-  rackets[i].display(y, i);
-  //i = 0;
-  //rackets[i].display(y, i);
+  rackets[i].display(yracket[i], i);
+  i = 0;
+  rackets[i].display(yracket[i], i);
   }
   ball.display();
-  */
   //score();
   //changeHit();
  }
