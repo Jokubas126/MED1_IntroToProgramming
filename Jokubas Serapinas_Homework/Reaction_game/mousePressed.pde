@@ -1,11 +1,12 @@
 void mousePressed(){
-  if (mouseX <= circles.x + circles.r  && mouseX >= circles.x && mouseY <= circles.y + circles.r && mouseY >= circles.y){
-    k = 0;
-    time[i] = toclick - millis();
-    time[0] = time[0] + time[i];
-    background(255,200,200);
-    score();
-    lasttime = millis();
-    randomtimer = random (3000, 6000); // amount of time after the circle appears
+  if (mouseX <= rectangles.x + rectangles.r  && mouseX >= rectangles.x && mouseY <= rectangles.y + rectangles.r && mouseY >= rectangles.y){
+      k = 0;
+      toclick = millis();
+      time[i] = millis() - toclick;
+      time[0] = time[0] + time[i];
+      background(255,200,200);
+      finalscore();
+      lasttime = millis();
+      randomtimer = random (3000, 6000); // amount of time after the circle appears
   }
 }

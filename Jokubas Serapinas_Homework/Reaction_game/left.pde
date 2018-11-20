@@ -4,5 +4,5 @@ void left(){
   text(left, 0,20);
   text("to go", 20, 20);
   text("current time", 0, 50);
-  text(time[0], 120, 50);
+  text(time[0]/1000 - starttime, 120, 50);
 }
