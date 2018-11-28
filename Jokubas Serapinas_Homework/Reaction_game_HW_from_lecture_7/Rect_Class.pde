@@ -21,5 +21,5 @@ class Rectangle{
     rectangles.y = random(0,height - r);
   }
   
-  void movement(){} //start to move after 5 clicks
+  void movement(){} //start to move after 5 clicks (in development)
 }

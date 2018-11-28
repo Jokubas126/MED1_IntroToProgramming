@@ -36,6 +36,6 @@ void setup(){
 }
 
 void draw(){
-  left(); //counts how many clicks for the game left and displays then in the left upper corner
+  left(); //counts how many clicks for the game left and displays then in the upper left corner
   timecheck(); // makes random rectangles if k = 0, which becomes 0 after mousePressed() function
 }
