@@ -1,10 +1,13 @@
-int num = 50;
+int num = 50; //number of all the flowers shown
+
+//positions of each flower separately
 int[] x = new int[num];
 int[] y = new int[num];
+
 int position = 0;
 int addition = 1;
 
-Object[] object = new Object[num];
+Flower[] flowers = new Flower[num];
 
 void setup() { 
   size(800,600);
@@ -24,7 +27,7 @@ void draw() {
     addition++;
   }
   for (int i = 0; i < num; i++){
-    object[i] = new Object(x[i], y[i], i);
-    object[i].display();
+    flowers[i] = new Flower(x[i], y[i], i);
+    flowers[i].display();
   }
 }

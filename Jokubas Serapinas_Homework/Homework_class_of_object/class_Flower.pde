@@ -1,4 +1,4 @@
-class Object{
+class Flower{
  
   float x; // position on x axe of ellipse
   float y; // position on y axe of ellipse
@@ -8,7 +8,7 @@ class Object{
   int arrayPosition;
   int petalNumber = 6; // petal amount
   
-  Object(float temp_x, float temp_y, int temp_arrayPosition){
+  Flower(float temp_x, float temp_y, int temp_arrayPosition){
     x = temp_x;
     y = temp_y;
     arrayPosition = temp_arrayPosition;
