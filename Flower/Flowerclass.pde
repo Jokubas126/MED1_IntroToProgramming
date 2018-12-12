@@ -4,7 +4,6 @@ float r;
 int petalsnumber;
 float x;
 float y;
-int piccolor;
 float speedX;
 float speedY;
 
@@ -13,26 +12,27 @@ myFlower(float temp_r, int temp_petalsnumber, float temp_x, float temp_y, int te
  petalsnumber = temp_petalsnumber;
  x = temp_x;
  y = temp_y;
- piccolor = temp_piccolor;
  speedX = temp_speedX;
  speedY = temp_speedY;
 }
 
+//function for displaying the flower
 void flower(){
   background(#4BCB2F);
   fill(#E3E802);
-  for (float i=0;i<PI*2;i+=2*PI/petalsnumber) {
-  
-  ballX = x + r*cos(i) + speedX;
-  ballY = y + r*sin(i) + speedY;
-  x = x + speedX;
-  y = y + speedY;
-  ellipse(ballX,ballY,r,r); 
+  for(float i=0; i<PI*2; i+=2*PI/petalsnumber){
+    ballX = x + r*cos(i) + speedX;
+    ballY = y + r*sin(i) + speedY;
+    x = x + speedX;
+    y = y + speedY;
+    ellipse(ballX,ballY,r,r); //the petals
   }
+  
   fill(#FF0000);
-  ellipse(x,y,r*1.2,r*1.2);
+  ellipse(x,y,r,r); //the middle
 }
 
+//function for bouncing from the edges
 void bounce(){
  if(ballX < 0 || ballX > width){
    speedX = speedX * -1;
