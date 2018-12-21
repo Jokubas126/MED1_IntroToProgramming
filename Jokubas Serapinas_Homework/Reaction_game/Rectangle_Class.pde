@@ -14,7 +14,7 @@ class Rectangle{
   
   void display(){
     noFill();
-    rect(x,y,r,r,corners,corners,corners,corners);
+    rect(x,y,r,r,corners,corners,corners,corners); //rectangles with bent corners
   }
   
   void randoms(){
