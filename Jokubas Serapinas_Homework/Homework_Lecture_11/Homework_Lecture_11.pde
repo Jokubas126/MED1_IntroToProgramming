@@ -1,11 +1,11 @@
 // A polar coordinate 
-float r = 5; 
-float theta = 0;
-int max = 50000;
-int blue = 50;
-float range = 0;
-float size = 30;
-int colorChangeSpeed = 2;
+float r = 5; //range when using for loop
+float theta = 0; //gaps between each ball
+int max = 50000; // maximum amount of balls when using for loop
+int blue = 50; //start of blue color before starting to change it
+float range = 0; // range of perlin noise
+float size = 30; // size of ellipse without noise added
+int colorChangeSpeed = 2; //spped of changing the color of blue with noise
 
 void setup(){  
 fullScreen();  
